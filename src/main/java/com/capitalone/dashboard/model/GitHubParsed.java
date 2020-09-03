@@ -9,7 +9,7 @@ public class GitHubParsed {
     private String url;
     private String host;
     private String apiUrl;
-    private String orgName;
+    private String owner;
     private String repoName;
 
     private static final String SEGMENT_API = "/api/v3/repos";
@@ -34,7 +34,7 @@ public class GitHubParsed {
         if ((parts == null) || (parts.length < 3)) {
             throw new HygieiaException("Bad github repo URL: " + url, HygieiaException.BAD_DATA);
         }
-        orgName = parts[1];
+        owner = parts[1];
         repoName = parts[2];
         if (host.startsWith(PUBLIC_GITHUB_HOST_NAME)) {
             apiUrl = protocol + "://" + PUBLIC_GITHUB_REPO_HOST + path;
@@ -67,12 +67,12 @@ public class GitHubParsed {
         this.apiUrl = apiUrl;
     }
 
-    public String getOrgName() {
-        return orgName;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setOrgName(String orgName) {
-        this.orgName = orgName;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public String getRepoName() {

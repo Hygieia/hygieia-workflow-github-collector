@@ -65,8 +65,8 @@ public class GitHub extends CollectorItem {
         getOptions().put(LAST_UPDATE_TIME, date);
     }
 
-    public static String getPersonalAccessToken() {
-        return PERSONAL_ACCESS_TOKEN;
+    public String getPersonalAccessToken() {
+        return (String) getOptions().get(PERSONAL_ACCESS_TOKEN);
     }
 
     public void setPersonalAccessToken(String personalAccessToken) {
